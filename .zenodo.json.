@@ -1,0 +1,41 @@
+{
+  "title": "BreastDCEDL: A Deep Learning–Ready Breast DCE-MRI Dataset",
+  "version": "1.0",
+  "description": "BreastDCEDL is a curated deep learning–ready dataset composed of 3D pre-treatment breast DCE-MRI scans from I-SPY1, I-SPY2, and Duke cohorts. It includes NIfTI-converted images, tumor segmentations, clinical metadata (pCR, HR, HER2), and pretrained ViT model weights.",
+  "creators": [
+    {
+      "name": "Fridman, Naomi",
+      "affiliation": "Ariel University",
+      "orcid": "https://orcid.org/0009-0000-3622-8881"
+    },
+    {
+      "name": "Solway, Ben",
+      "affiliation": "University of California, Berkeley"
+    },
+    {
+      "name": "Fridman, Tal",
+      "affiliation": "Technion – Israel Institute of Technology"
+    },
+    {
+      "name": "Barnea, Ilan",
+      "affiliation": "Sheba Medical Center"
+    }
+  ],
+  "keywords": [
+    "breast cancer",
+    "DCE-MRI",
+    "deep learning",
+    "Vision Transformer",
+    "medical imaging",
+    "segmentation",
+    "pCR prediction"
+  ],
+  "license": "CC-BY-4.0",
+  "upload_type": "dataset",
+  "related_identifiers": [
+    {
+      "relation": "isSupplementTo",
+      "identifier": "https://github.com/naomifridman/BreastDCEDL"
+    }
+  ]
+}
