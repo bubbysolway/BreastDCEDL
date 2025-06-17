@@ -8,9 +8,6 @@
 -   Clinical and demographic metadata, including pCR, HER2, HR, age, and race
 
 ----------
-Certainly! Here’s a concise, original description of your article, followed by the article and dataset citation sections in Markdown:
-
----
 
 ## Article
 
