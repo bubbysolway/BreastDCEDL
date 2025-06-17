@@ -1,13 +1,26 @@
 
 # BreastDCEDL
 
-**BreastDCEDL** is a curated collection of pretreatment 3D dynamic contrast-enhanced MRI (DCE-MRI) scans from **2,085 breast cancer patients**, assembled into a deep learning–ready dataset. It integrates data from three major clinical trials: **I-SPY2** (n = 982), **I-SPY1** (n = 173), and **Duke** (n = 920). The dataset, originally sourced from The Cancer Imaging Archive (TCIA), includes:
+**BreastDCEDL** is a curated collection of pretreatment 3D dynamic contrast-enhanced MRI (DCE-MRI) scans from **2,070 breast cancer patients**, assembled into a deep learning–ready dataset. It integrates data from three major clinical trials: **I-SPY2** (n = 982), **I-SPY1** (n = 173), and **Duke** (n = 916). The dataset, originally sourced from The Cancer Imaging Archive (TCIA), includes:
 
 -   3D raw MRI scans converted to NIfTI format
 -   Corresponding 3D tumor binary segmentation masks
 -   Clinical and demographic metadata, including pCR, HER2, HR, age, and race
 
 ----------
+Certainly! Here’s a concise, original description of your article, followed by the article and dataset citation sections in Markdown:
+
+---
+
+## Article
+
+**BreastDCEDL: Curating a Comprehensive DCE-MRI Dataset and Developing a Transformer Implementation**  
+[Read on arXiv](https://doi.org/10.48550/arXiv.2506.12190)
+
+**Description:**  
+This work introduces BreastDCEDL, a carefully assembled dataset of pre-treatment 3D DCE-MRI scans, and presents a transformer-based deep learning approach for analyzing these images. The dataset brings together imaging data from multiple sources to support research in breast cancer detection and diagnosis, while the accompanying transformer implementation demonstrates state-of-the-art performance on this challenging medical imaging task.
+
+---
 ## 📥 BreastDCEDL Data Download
 
 - **I-SPY1**  
@@ -110,9 +123,40 @@ The **Duke Breast Cancer Dataset** consists of 920 patients with biopsy-confirme
 
 If you use the BreastDCEDL dataset or code in your research, please cite:
 
-> Fridman, N., Solway, B., Fridman, T., & Barnea, I. (2025). *BreastDCEDL: A Deep Learning–Ready Breast DCE-MRI Dataset (v1.0)* [Data set]. Zenodo. https://doi.org/10.5281/zenodo.15627233
+Certainly! Here’s a concise, original description of your article, followed by the article and dataset citation sections in Markdown:
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15627233.svg)](https://doi.org/10.5281/zenodo.15627233)
+---
+
+#### Article
+
+**BreastDCEDL: Curating a Comprehensive DCE-MRI Dataset and Developing a Transformer Implementation**  
+[Read on arXiv](https://doi.org/10.48550/arXiv.2506.12190)
+
+**Citation:**
+```bibtex
+@article{fridman2025breastdcedl,
+  title={BreastDCEDL: Curating a Comprehensive DCE-MRI Dataset and Developing a Transformer Implementation},
+  author={Fridman, Naomi and others},
+  journal={arXiv preprint arXiv:2506.12190},
+  year={2025},
+  doi={10.48550/arXiv.2506.12190}
+}
+```
+
+#### Dataset
+
+**BreastDCEDL Dataset**  
+[Available on Zenodo](https://doi.org/10.5281/zenodo.15627233)
+
+**Citation:**
+```bibtex
+@dataset{fridman2025breastdcedl_dataset,
+  author       = {Fridman, Naomi and others},
+  title        = {BreastDCEDL: Curated DCE-MRI Dataset},
+  year         = {2025},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.15627233}
+}
 
 ----------
 
