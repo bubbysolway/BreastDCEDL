@@ -1,13 +1,39 @@
 
 # BreastDCEDL
 
-**BreastDCEDL** is a curated collection of pretreatment 3D dynamic contrast-enhanced MRI (DCE-MRI) scans from **2,085 breast cancer patients**, assembled into a deep learning–ready dataset. It integrates data from three major clinical trials: **I-SPY2** (n = 982), **I-SPY1** (n = 173), and **Duke** (n = 920). The dataset, originally sourced from The Cancer Imaging Archive (TCIA), includes:
+**BreastDCEDL** is a curated collection of pretreatment 3D dynamic contrast-enhanced MRI (DCE-MRI) scans from **2,070 breast cancer patients**, assembled into a deep learning–ready dataset. It integrates data from three major clinical trials: **I-SPY2** (n = 982), **I-SPY1** (n = 173), and **Duke** (n = 916). The dataset, originally sourced from The Cancer Imaging Archive (TCIA), includes:
 
 -   3D raw MRI scans converted to NIfTI format
 -   Corresponding 3D tumor binary segmentation masks
 -   Clinical and demographic metadata, including pCR, HER2, HR, age, and race
 
 ----------
+
+## Article
+
+**BreastDCEDL: Curating a Comprehensive DCE-MRI Dataset and Developing a Transformer Implementation**  
+[Read on arXiv](https://doi.org/10.48550/arXiv.2506.12190)
+
+**Description:**  
+This work introduces BreastDCEDL, a carefully assembled dataset of pre-treatment 3D DCE-MRI scans, and presents a transformer-based deep learning approach for analyzing these images. The dataset brings together imaging data from multiple sources to support research in breast cancer detection and diagnosis, while the accompanying transformer implementation demonstrates state-of-the-art performance on this challenging medical imaging task.
+
+---
+## 📥 BreastDCEDL Data Download
+
+- **I-SPY1**  
+  The complete I-SPY1 dataset is available for direct download from **Zenodo**:  
+  [https://zenodo.org/records/15627233](https://zenodo.org/records/15627233)
+
+- **Duke**  
+  The full Duke cohort can be accessed via **The Cancer Imaging Archive (TCIA)**.  
+  Conversion to NIfTI format can be performed using the provided code in the `DUKE/` folder.  
+  A minimized version—containing three *(n<sub>z</sub>, 256×256)* tumor-centered scans per patient—is available on **Zenodo**:  
+  [https://zenodo.org/records/15627233](https://zenodo.org/records/15627233)
+
+- **I-SPY2**  
+  The full I-SPY2 dataset is available on **TCIA** and can be converted to NIfTI using the code in this repository.  
+  A pre-converted NIfTI version will be made available on TCIA in the near future.
+
 
 ## Benchmark Prediction Tasks
 
@@ -67,6 +93,9 @@ The **I-SPY1** dataset is a predecessor to I-SPY2 and contains similar imaging a
 -   Patients: 173 with 3–5 usable DCE scans
 -   Clinical data: pCR, HR, HER2, and other core biomarkers
 
+  ![Example from I-SPY1](https://github.com/naomifridman/BreastDCEDL/blob/main/images/spy1_example.png?raw=true)
+
+
 ----------
 
 ### 🧪 Duke Dataset
@@ -77,10 +106,54 @@ The **Duke Breast Cancer Dataset** consists of 920 patients with biopsy-confirme
 -   The rest underwent surgery first, followed by adjuvant therapy, and are not included in pCR analysis.
 -   DCE-MRI scans include one pre-contrast and 2–4 post-contrast acquisitions, spaced 1–2 minutes apart.
 
+![Example from I-SPY1](https://github.com/naomifridman/BreastDCEDL/blob/main/images/duke_example.png?raw=true)
+
+
 **🖼️ Data Processing Notes:**
 
 -   Bounding box annotations of the largest tumor are provided.
 -   No full tumor segmentation masks are available for Duke.
+
+----------
+
+## 📚 Citation
+
+If you use the BreastDCEDL dataset or code in your research, please cite:
+
+Certainly! Here’s a concise, original description of your article, followed by the article and dataset citation sections in Markdown:
+
+---
+
+#### Article
+
+**BreastDCEDL: Curating a Comprehensive DCE-MRI Dataset and Developing a Transformer Implementation**  
+[Read on arXiv](https://doi.org/10.48550/arXiv.2506.12190)
+
+**Citation:**
+```bibtex
+@article{fridman2025breastdcedl,
+  title={BreastDCEDL: Curating a Comprehensive DCE-MRI Dataset and Developing a Transformer Implementation},
+  author={Fridman, Naomi and others},
+  journal={arXiv preprint arXiv:2506.12190},
+  year={2025},
+  doi={10.48550/arXiv.2506.12190}
+}
+```
+
+#### Dataset
+
+**BreastDCEDL Dataset**  
+[Available on Zenodo](https://doi.org/10.5281/zenodo.15627233)
+
+**Citation:**
+```bibtex
+@dataset{fridman2025breastdcedl_dataset,
+  author       = {Fridman, Naomi and others},
+  title        = {BreastDCEDL: Curated DCE-MRI Dataset},
+  year         = {2025},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.15627233}
+}
 
 ----------
 
