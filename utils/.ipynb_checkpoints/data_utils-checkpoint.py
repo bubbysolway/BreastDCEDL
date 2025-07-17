@@ -250,6 +250,34 @@ def get_nifti_acquisitions(pid ):
         img.append(x)
     return img
 
+    
+import re
+import os
+
+def extract_last_number(filename):
+    # Match the LAST number in the filename, regardless of preceding character
+    # Uses: \d+ = one or more digits, \. = literal dot, .* = any characters after
+    match = re.search(r'(\d+)\.nii\.gz$', filename)
+    return int(match.group(1)) if match else -1
+
+def get_all_nifti_acquisitions(pid):
+    global nifti_path
+    dataset = get_dataset_from_id(pid)
+    fpath = nifti_path[dataset]
+    ff = [x for x in os.listdir(fpath) if pid in x]
+    sorted_filenames = sorted(ff, key=extract_last_number)
+    
+    img = []
+    for f in sorted_filenames:
+        x = read_niftii(os.path.join(fpath, f))
+        img.append(x)
+        
+    return img
+
+
+
+
+    n img
 def get_ser_acquisitions(pid, ser=[0,1,2]):
 
     global nifti_path
