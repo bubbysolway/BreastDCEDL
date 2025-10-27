@@ -155,22 +155,31 @@ def _last_int(path):
 
 
 def get_all_nifti_acquisitions(pid: str, fpath=None):
-    if fpath != None:
+        if 'SPY1' in pid: fpath=ds.nifti_path['spy1']
+        elif 'SPY2' in pid: fpath=ds.nifti_path['spy2']
+        elif 'DUKE' in pid: fpath=ds.nifti_path['duke']
+        else: return None
         x=os.listdir(fpath)
+        if deb: print(pid,fpath)
         x=[c for c in x if pid in c]
+        if deb: print(x)
         files = sorted(x, key=_last_int)
         return [read_nifti(os.path.join(fpath,f)) for f in files]
-    ds   = _ds_from_pid(pid)
-    patt = os.path.join(nifti_path[ds], f"{pid}{NIFTI_SUFFIX[ds]}*.nii.gz")
-    files = sorted(glob(patt), key=_last_int)
-    return [read_nifti(f) for f in files]
 
 
 def get_nifti_mask(pid: str):
-    f = _build_file(pid, "", kind="mask")  # mask has no trailing idx
-    print(f)
-    return read_nifti(f) if os.path.isfile(f) else None
-
+        if 'SPY1' in pid: fpath=ds.mask_path['spy1']
+        elif 'SPY2' in pid: fpath=ds.mask_path['spy2']
+        elif 'DUKE' in pid: fpath=ds.mask_path['duke']
+        else: return None
+        x=os.listdir(fpath)
+        if deb: print(pid,fpath)
+        x=[c for c in x if pid in c]
+        if deb: print(x)
+        if len(x)>1:
+            print('error in mask',pid)
+        m=read_nifti(os.path.join(fpath,x[0]))
+        return m
 
 # --------------------------------------------------------------------- #
 #                 Simple statistics / bounding boxes                    #
