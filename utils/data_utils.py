@@ -156,10 +156,10 @@ def _last_int(path):
 
 def get_all_nifti_acquisitions(pid,  deb=0):
         if deb: print('get_all_nifti_acquisitions',pid)
-        if 'SPY1' in pid: fpath=ds.nifti_path['spy1']
-        elif 'SPY2' in pid: fpath=ds.nifti_path['spy2']
-        elif 'ACRIN-6698' in pid: fpath=ds.nifti_path['spy2']
-        elif 'MRI' in pid: fpath=ds.nifti_path['duke']
+        if 'SPY1' in pid: fpath=nifti_path['spy1']
+        elif 'SPY2' in pid: fpath=nifti_path['spy2']
+        elif 'ACRIN-6698' in pid: fpath=nifti_path['spy2']
+        elif 'MRI' in pid: fpath=nifti_path['duke']
         else: return None
         x=os.listdir(fpath)
         if deb: print(pid,fpath)
