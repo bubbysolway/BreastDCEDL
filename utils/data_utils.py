@@ -15,7 +15,7 @@ Main changes
 # --------------------------------------------------------------------- #
 #                               Imports                                 #
 # --------------------------------------------------------------------- #
-from __future__ import annotations
+
 
 import os, re, warnings, time
 from glob   import glob
