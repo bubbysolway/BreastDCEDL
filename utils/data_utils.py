@@ -170,9 +170,10 @@ def get_all_nifti_acquisitions(pid,  deb=0):
 
 
 def get_nifti_mask(pid: str, deb=0):
-        if 'SPY1' in pid: fpath=ds.mask_path['spy1']
-        elif 'SPY2' in pid: fpath=ds.mask_path['spy2']
-        elif 'DUKE' in pid: fpath=ds.mask_path['duke']
+        if 'SPY1' in pid: fpath=mask_path['spy1']
+        elif 'SPY2' in pid: fpath=mask_path['spy2']
+        elif 'ACRIN-6698' in pid: fpath=nifti_path['spy2']
+        elif 'MRI' in pid: fpath=mask_path['duke']
         else: return None
         x=os.listdir(fpath)
         if deb: print(pid,fpath)
