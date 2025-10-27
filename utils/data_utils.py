@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+b=0#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
 data_utils.py – cleaned-up utilities for Breast-MRI work
@@ -154,7 +154,7 @@ def _last_int(path):
     return int(m.group(1)) if m else -1
 
 
-def get_all_nifti_acquisitions(pid: str, fpath=None):
+def get_all_nifti_acquisitions(pid: str, fpath=None,deb=0):
         if 'SPY1' in pid: fpath=ds.nifti_path['spy1']
         elif 'SPY2' in pid: fpath=ds.nifti_path['spy2']
         elif 'DUKE' in pid: fpath=ds.nifti_path['duke']
@@ -167,7 +167,7 @@ def get_all_nifti_acquisitions(pid: str, fpath=None):
         return [read_nifti(os.path.join(fpath,f)) for f in files]
 
 
-def get_nifti_mask(pid: str):
+def get_nifti_mask(pid: str, deb=0):
         if 'SPY1' in pid: fpath=ds.mask_path['spy1']
         elif 'SPY2' in pid: fpath=ds.mask_path['spy2']
         elif 'DUKE' in pid: fpath=ds.mask_path['duke']
