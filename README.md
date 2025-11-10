@@ -1,4 +1,4 @@
-# BreastDCEDL 2,070 breast cancer patients 
+# BreastDCEDL  -  2,070 breast cancer patients 
 
 A comprehensive deep learning-ready dataset of pretreatment 3D dynamic contrast-enhanced MRI (DCE-MRI) scans from **2,070 breast cancer patients**, combining data from three major clinical trials: **I-SPY2** (n=982), **I-SPY1** (n=172), and **Duke** (n=916).
 
@@ -64,11 +64,11 @@ Three standardized classification tasks with preserved train/validation/test spl
 
 ## 🏥 Dataset Details
 
-### I-SPY2 (n=982)
+### BreastDCEDL_ISPY2 (n=982)
 - **Sequences**: 3-12 time points (typically 7)
 - **Annotations**: Full 3D tumor segmentations at 3 selected time points
 ![Example from I-SPY1](https://github.com/naomifridman/BreastDCEDL/blob/main/images/spy2_example.png?raw=true)
-### I-SPY1 (n=172)
+### BreastDCEDL_ISPY1 (n=172)
 - **Sequences**: 3-5 usable DCE scans
 - **Annotations**: Full 3D tumor segmentations
 ![Example from I-SPY1](https://github.com/naomifridman/BreastDCEDL/blob/main/images/spy1_example.png?raw=true)
@@ -82,10 +82,14 @@ Three standardized classification tasks with preserved train/validation/test spl
 ### Option 1: Explore Sample Data (No Download Required)
 Open `BreastDCEDL_demo.ipynb` to visualize and explore example data included in this repository.
 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/naomifridman/BreastDCEDL/blob/main/BreastDCEDL_demo.ipynb)
+
 ### Option 2: Work with Full MinCrop Dataset
 1. Download the MinCrop dataset from [Zenodo](https://zenodo.org/records/15627233)
 2. Open `BreastDCEDL_demo_on_local_data_min_crop.ipynb`
 3. Follow the notebook to explore and analyze the data
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/naomifridman/BreastDCEDL/blob/main/BreastDCEDL_demo_on_local_data_min_crop.ipynb)
 
 ## 🔬 Clinical Background
 
