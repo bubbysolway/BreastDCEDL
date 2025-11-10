@@ -36,11 +36,11 @@ The dataset is suitable for a wide range of computational approaches including r
 The Full version preserves complete spatiotemporal information for researchers investigating advanced temporal dynamics, developing novel preprocessing methods, or requiring the full field of view. Contains all acquired time points (3-12) at original resolution, enabling deep exploration of contrast enhancement kinetics and spatial relationships beyond the tumor region.
 
 **Availability:**
-```
-- **I-SPY1 (Full)**: [Download from Zenodo](https://zenodo.org/records/15627233)
-- **I-SPY2 (Full)**: [Download from Zenodo](https://zenodo.org/records/15627233)
-- **Duke**: Download from [TCIA](https://www.cancerimagingarchive.net/) and convert using provided code
-```
+
+- **I-SPY1 (Full)**: ```Download from Zenodo](https://zenodo.org/records/15627233)```
+- **I-SPY2 (Full)**: ```[Download from Zenodo](https://zenodo.org/records/15627233)```
+- **Duke**: Download from ```[TCIA](https://www.cancerimagingarchive.net/)``` and convert using provided code
+
 **DCE MRI 3D Data Organization**
 ![BreastDCEDL data structure](https://github.com/naomifridman/BreastDCEDL/blob/main/images/breastdcedl_data_structure.png?raw=true)
 ### Dataset Characteristics
@@ -61,17 +61,6 @@ The Full version preserves complete spatiotemporal information for researchers i
 | Duke | 916 | 512×512 (68%), 448×448 (28%), 320×320 (4%) | 170 | 4.5 | ~142 |
 | **Total** | **2,070** | **Multiple (256-512)** | **131** | **5.7** | **~202** |
   
-## 📁 Repository Contents
-
-| File | Description |
-|------|-------------|
-| `BreastDCEDL_metadata.csv` | Metadata for the full BreastDCEDL dataset |
-| `BreastDCEDL_metadata_min_crop.csv` | Metadata for the MinCrop version |
-| `BreastDCEDL_demo.ipynb` | Visualize data examples included in this repository |
-| `BreastDCEDL_demo_on_local_data_min_crop.ipynb` | Explore and work with MinCrop data after downloading from Zenodo |
-| `BreastDCEDL_vit_predict.ipynb` | Predict pCR using trained ViT model |
-
-**Directories:** `I-SPY1/`, `I-SPY2/`, and `DUKE/` contain dataset-specific code for preprocessing metadata, DICOM exploration, and conversion to NIfTI format.
 
 ## 🎯 Benchmark 
 
@@ -164,6 +153,17 @@ If you use the BreastDCEDL dataset or code in your research, please cite the art
   doi          = {10.5281/zenodo.15627233}
 }
 ```
+## 📁 Repository Contents
+
+| File | Description |
+|------|-------------|
+| `BreastDCEDL_metadata.csv` | Metadata for the full BreastDCEDL dataset |
+| `BreastDCEDL_metadata_min_crop.csv` | Metadata for the MinCrop version |
+| `BreastDCEDL_demo.ipynb` | Visualize data examples included in this repository |
+| `BreastDCEDL_demo_on_local_data_min_crop.ipynb` | Explore and work with MinCrop data after downloading from Zenodo |
+| `BreastDCEDL_vit_predict.ipynb` | Predict pCR using trained ViT model |
+
+**Directories:** `I-SPY1/`, `I-SPY2/`, and `DUKE/` contain dataset-specific code for preprocessing metadata, DICOM exploration, and conversion to NIfTI format.
 
 ## 🔗 Resources
 - **Zenodo Repository**: [https://zenodo.org/records/15627233](https://zenodo.org/records/15627233)
