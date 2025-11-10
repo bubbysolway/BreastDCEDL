@@ -69,7 +69,7 @@ Three standardized classification tasks with preserved train/validation/test spl
 ### I-SPY2 (n=982)
 - **Sequences**: 3-12 time points (typically 7)
 - **Annotations**: Full 3D tumor segmentations at 3 selected time points
-![Example from I-SPY1](https://github.com/naomifridman/BreastDCEDL/blob/main/images/spy2_figure.png?raw=true)
+![Example from I-SPY1](https://github.com/naomifridman/BreastDCEDL/blob/main/images/spy2_example.png?raw=true)
 ### I-SPY1 (n=172)
 - **Sequences**: 3-5 usable DCE scans
 - **Annotations**: Full 3D tumor segmentations
