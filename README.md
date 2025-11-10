@@ -1,4 +1,7 @@
-# BreastDCEDL  -  2,070 breast cancer patients 
+Here's the rewritten section with expanded descriptions:
+
+```markdown
+# BreastDCEDL - 2,070 Breast Cancer Patients
 
 A comprehensive deep learning-ready dataset of pretreatment 3D dynamic contrast-enhanced MRI (DCE-MRI) scans from **2,070 breast cancer patients**, combining data from three major clinical trials: **I-SPY2** (n=982), **I-SPY1** (n=172), and **Duke** (n=916).
 
@@ -7,23 +10,43 @@ A comprehensive deep learning-ready dataset of pretreatment 3D dynamic contrast-
 **BreastDCEDL: A Comprehensive Breast Cancer DCE-MRI Dataset and Transformer Implementation for Treatment Response Prediction**  
 [Read on arXiv](https://doi.org/10.48550/arXiv.2506.12190)
 
+```bibtex
+@article{fridman2025breastdcedl,
+  title={BreastDCEDL: A Comprehensive Breast Cancer DCE-MRI Dataset and Transformer Implementation for Treatment Response Prediction},
+  author={Fridman, Naomi and Solway, Bubby and Fridman, Tomer and Barnea, Itamar and Goldstein, Anat},
+  journal={arXiv preprint arXiv:2506.12190},
+  year={2025},
+  doi={10.48550/arXiv.2506.12190}
+}
+```
+
 ## 🔍 Dataset Versions
 
 ### MinCrop Version
+
+The MinCrop version provides three carefully selected DCE-MRI time points (pre-contrast, early post-contrast, late post-contrast) cropped to 256×256 pixels around the main tumor. This version has been successfully used to train deep learning models achieving state-of-the-art results for pCR (AUC 0.94) and HER2 (AUC 0.74) prediction in published research. 
+
+The dataset is suitable for a wide range of computational approaches including radiomics feature extraction, traditional machine learning, and deep learning. The standardized CSV metadata format with numerically encoded clinical variables and 3D NIfTI imaging files ensures compatibility with all major programming languages and medical imaging software. Examples in this repository demonstrate implementation in Python using PyTorch and HuggingFace infrastructure, though the data format supports any computational framework.
+
+**Key features:**
 - **3 tumor-centered scans per patient**: Pre-contrast, early post-contrast, late post-contrast
 - **Standardized size**: All scans cropped to 256×256 pixels around the main tumor
 - **Fully available on Zenodo**: [Download MinCrop Dataset](https://zenodo.org/records/15627233)
-- **Used for**: Training deep learning models with RGB fusion from 3 main time points for pCR and HER2 prediction in published research
 - **Clinical relevance**: These three time points are specifically selected by radiologists for tumor identification, characterization, and segmentation in clinical practice
 
 ![Example of DCE-MRI temporal phases](https://github.com/naomifridman/BreastDCEDL/blob/main/images/ser_images.png?raw=true)
+
 ### Full Version
-- **Complete DCE-MRI sequences**: 3-12 time points per patient
-- **Original resolution**: Preserves full field of view and spatial information
-- **Availability**:
-  - **I-SPY1 (Full)**: [Download from Zenodo](https://zenodo.org/records/15627233)
-  - **I-SPY2 (Full)**: [Download from Zenodo](https://zenodo.org/records/15627233)
-  - **Duke**: Download from [TCIA](https://www.cancerimagingarchive.net/) and convert using provided code
+
+The Full version preserves the complete temporal and spatial information from the original acquisitions, containing 3-12 DCE-MRI time points per patient at original sizes. This comprehensive dataset is designed for researchers who need to explore deeper temporal dynamics, develop novel preprocessing methods, or investigate the full spatiotemporal complexity of contrast enhancement patterns.
+
+**Important**: All imaging data is unprocessed and preserves exact DICOM values, converted from uint16 to float64 format without normalization or intensity manipulation. Complete medical data processing code is available in the dataset-specific subdirectories (I-SPY1/, I-SPY2/, DUKE/) for full transparency and reproducibility.
+
+**Availability:**
+- **I-SPY1 (Full)**: [Download from Zenodo](https://zenodo.org/records/15627233)
+- **I-SPY2 (Full)**: [Download from Zenodo](https://zenodo.org/records/15627233)
+- **Duke**: Download from [TCIA](https://www.cancerimagingarchive.net/) and convert using provided code
+```
 
 ## 📁 Repository Contents
 
@@ -102,7 +125,7 @@ For detailed methodology, see [Fridman et al., 2025](https://doi.org/10.48550/ar
 
 ## 📚 Citations
 
-If you use the BreastDCEDL dataset or code in your research, please cite both the article and dataset:
+If you use the BreastDCEDL dataset or code in your research, please cite the article:
 
 ### Article Citation (Required)
 ```bibtex
