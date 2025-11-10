@@ -24,12 +24,12 @@ The MinCrop version provides three carefully selected DCE-MRI time points (pre-c
 The dataset is suitable for a wide range of computational approaches including radiomics feature extraction, traditional machine learning, and deep learning. The standardized CSV metadata format with numerically encoded clinical variables and 3D NIfTI imaging files ensures compatibility with all major programming languages and medical imaging software. Examples in this repository demonstrate implementation in Python using PyTorch and HuggingFace infrastructure, though the data format supports any computational framework.
 
 **Key features:**
-- **3 tumor-centered scans per patient**: Pre-contrast, early post-contrast, late post-contrast
+- **3 tumor-centered scans per patient**: Pre-contrast-injection, early post-contrast, late post-contrast
 - **Standardized size**: All scans cropped to 256×256 pixels around the main tumor
-**Fully available on Zenodo**: [Download MinCrop Dataset](https://zenodo.org/records/15627233)
+- **Fully available on Zenodo**: [Download MinCrop Dataset](https://zenodo.org/records/15627233)
 - **Clinical relevance**: These three time points are specifically selected by radiologists for tumor identification, characterization, and segmentation in clinical practice
 
-![Example of DCE-MRI temporal phases](https://github.com/naomifridman/BreastDCEDL/blob/main/images/ser_images.png?raw=true)
+![BreastDCEDL ser images](https://github.com/naomifridman/BreastDCEDL/blob/main/images/ser_images.png?raw=true)
 
 ### BreastDCEDL Full Version
 
@@ -41,6 +41,8 @@ The Full version preserves complete spatiotemporal information for researchers i
 - **I-SPY2 (Full)**: [Download from Zenodo](https://zenodo.org/records/15627233)
 - **Duke**: Download from [TCIA](https://www.cancerimagingarchive.net/) and convert using provided code
 ```
+**DCE MRI 3D Data Organization**
+![BreastDCEDL data structure](https://github.com/naomifridman/BreastDCEDL/blob/main/images/breastdcedl_data_structure.png?raw=true)
 ### Dataset Characteristics
 
 #### MinCrop Version (256×256×varied slices, 3 time points each)
