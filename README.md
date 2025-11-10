@@ -13,7 +13,11 @@ A comprehensive deep learning-ready dataset of pretreatment 3D dynamic contrast-
 - **3 tumor-centered scans per patient**: pre-contrast, early post-contrast, late post-contrast
 - **Standardized size**: All scans cropped to 256×256 pixels around the main tumor
 - **Fully available on Zenodo**: [Download MinCrop Dataset](https://zenodo.org/records/15627233)
-- **Used for**: Training deep learning models with RGB fusion from 3 main time points for pCR and HER2 prediction in published research
+- **Used for**: Training deep learning models with RGB fusion from 3 main time points for pCR and HER2 prediction in published research.
+- **Radiologist** use those scans to find/classigy malifgnant tumor and sehment them.
+
+  ![Example from I-SPY1](https://github.com/naomifridman/BreastDCEDL/blob/main/images/ser_images.png?raw=true)
+
 
 ### Full Version
 - **Complete DCE-MRI sequences**: 3-12 time points per patient
