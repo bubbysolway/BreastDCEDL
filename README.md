@@ -1,9 +1,7 @@
 
 # BreastDCEDL - 2,070 Breast Cancer Patients
 
-Curated deep learning-ready DCE-MRI dataset with standardized 3D NIfTI volumes, tumor segmentations, and harmonized clinical metadata from three major trials (I-SPY2, I-SPY1, Duke). Designed for reproducible research in breast cancer imaging analysis.
-Deep learning-ready dataset of pretreatment 3D dynamic contrast-enhanced MRI (DCE-MRI) scans from **2,070 breast cancer patients** across three clinical trials: **I-SPY2** (n=982), **I-SPY1** (n=172), and **Duke** (n=916).
-
+Deep learning-ready dataset of pretreatment 3D dynamic contrast-enhanced MRI (DCE-MRI) scans from **2,070 breast cancer patients** across three clinical trials: **I-SPY2** (n=982), **I-SPY1** (n=172), and **Duke** (n=916). Features standardized 3D NIfTI volumes, tumor segmentations, and harmonized clinical metadata designed for reproducible research in breast cancer imaging analysis.
 
 ## 📄 Publication
 
@@ -23,54 +21,6 @@ Deep learning-ready dataset of pretreatment 3D dynamic contrast-enhanced MRI (DC
 
 Both versions preserve original DICOM intensity values (converted from uint16 to float64) without any preprocessing, normalization, or manipulation. All medical data processing code is available in the dataset-specific subdirectories for full transparency.
 
-### Dataset Characteristics
-
-#### MinCrop Version (256×256×varied slices)
-| Dataset | Patients | Avg Z-slices | Time Points | Size (GB) |
-|---------|----------|--------------|-------------|-----------|
-| I-SPY1 | 172 | 28 | 3 | 3.8 |
-| I-SPY2 | 982 | 39 | 3 | 30.0 |
-| Duke | 918 | 25 | 3 | 18.4 |
-| **Total** | **2,072** | **32** | **3** | **52.2** |
-
-#### Full Version (Original Resolution)
-| Dataset | Patients | Common Resolutions | Avg Z-slices | Avg Time Points | Size (GB) |
-|---------|----------|-------------------|--------------|-----------------|-----------|
-| I-SPY1 | 172 | 256×256 (91%), 512×512 (9%) | 59 | 3.4 | 10.8 |
-| I-SPY2 | 982 | 256×256 (78%), 320×320 (12%), other (10%) | 106 | 7.2 | 237.1 |
-| Duke | 916 | 512×512 (68%), 448×448 (28%), 320×320 (4%) | 170 | 4.5 | 658.0 |
-| **Total** | **2,070** | **Multiple (256-512)** | **131** | **5.7** | **905.9** |
-
-#### Spatial Resolution Distribution (Full Dataset)
-- **256×256**: 924 patients (45%)
-- **320×320**: 86 patients (4%)
-- **384×384**: 140 patients (7%)
-- **448×448**: 257 patients (12%)
-- **512×512**: 642 patients (31%)
-
-### MinCrop Version
-
-The MinCrop version provides the essential DCE-MRI data needed for most computational approaches, from traditional radiomics to state-of-the-art deep learning. It contains three carefully selected time points (pre-contrast, early post-contrast, late post-contrast) that radiologists use for clinical tumor assessment, cropped to 256×256 pixels around the main tumor. 
-
-This standardized format supports any computational method: radiomics feature extraction, traditional machine learning classifiers, and deep learning architectures. The CSV metadata with numerically encoded clinical variables and 3D NIfTI imaging files ensure seamless compatibility with all major programming languages and medical imaging software (Python, R, MATLAB, ITK-SNAP, 3D Slicer, etc.). Repository examples demonstrate Python implementations using PyTorch and HuggingFace infrastructure for deep learning, though the data format is framework-agnostic.
-
-The MinCrop version has been validated in published research, achieving pCR prediction AUC of 0.94 and HER2 prediction AUC of 0.74 using RGB fusion of the three time points. It provides sufficient temporal information for most clinical prediction tasks while maintaining a manageable dataset size.
-
-- **Download**: [Zenodo](https://zenodo.org/records/15627233) (52 GB)
-- **Proven applications**: RGB fusion models, radiomics pipelines, classification tasks
-
-![DCE-MRI temporal phases](https://github.com/naomifridman/BreastDCEDL/blob/main/images/ser_images.png?raw=true)
-
-### Full Version
-
-The Full version preserves complete spatiotemporal information for researchers investigating advanced temporal dynamics, developing novel preprocessing methods, or requiring the full field of view. Contains all acquired time points (3-12) at original resolution, enabling deep exploration of contrast enhancement kinetics and spatial relationships beyond the tumor region.
-
-- **I-SPY1**: [Download from Zenodo](https://zenodo.org/records/15627233)
-- **I-SPY2**: [Download from Zenodo](https://zenodo.org/records/15627233)
-- **Duke**: Download from [TCIA](https://www.cancerimagingarchive.net/), convert using provided code
-  
-## 🔍 Dataset Versions
-
 ### MinCrop Version
 
 The MinCrop version provides three carefully selected DCE-MRI time points (pre-contrast, early post-contrast, late post-contrast) cropped to 256×256 pixels around the main tumor. This version has been successfully used to train deep learning models achieving state-of-the-art results for pCR (AUC 0.94) and HER2 (AUC 0.74) prediction in published research. 
@@ -80,23 +30,39 @@ The dataset is suitable for a wide range of computational approaches including r
 **Key features:**
 - **3 tumor-centered scans per patient**: Pre-contrast, early post-contrast, late post-contrast
 - **Standardized size**: All scans cropped to 256×256 pixels around the main tumor
-- **Fully available on Zenodo**: [Download MinCrop Dataset](https://zenodo.org/records/15627233)
+**Fully available on Zenodo**: [Download MinCrop Dataset](https://zenodo.org/records/15627233)
 - **Clinical relevance**: These three time points are specifically selected by radiologists for tumor identification, characterization, and segmentation in clinical practice
 
 ![Example of DCE-MRI temporal phases](https://github.com/naomifridman/BreastDCEDL/blob/main/images/ser_images.png?raw=true)
 
 ### Full Version
 
-The Full version preserves the complete temporal and spatial information from the original acquisitions, containing 3-12 DCE-MRI time points per patient at original sizes. This comprehensive dataset is designed for researchers who need to explore deeper temporal dynamics, develop novel preprocessing methods, or investigate the full spatiotemporal complexity of contrast enhancement patterns.
-
-**Important**: All imaging data is unprocessed and preserves exact DICOM values, converted from uint16 to float64 format without normalization or intensity manipulation. Complete medical data processing code is available in the dataset-specific subdirectories (I-SPY1/, I-SPY2/, DUKE/) for full transparency and reproducibility.
+The Full version preserves complete spatiotemporal information for researchers investigating advanced temporal dynamics, developing novel preprocessing methods, or requiring the full field of view. Contains all acquired time points (3-12) at original resolution, enabling deep exploration of contrast enhancement kinetics and spatial relationships beyond the tumor region.
 
 **Availability:**
+```
 - **I-SPY1 (Full)**: [Download from Zenodo](https://zenodo.org/records/15627233)
 - **I-SPY2 (Full)**: [Download from Zenodo](https://zenodo.org/records/15627233)
 - **Duke**: Download from [TCIA](https://www.cancerimagingarchive.net/) and convert using provided code
 ```
+### Dataset Characteristics
 
+#### MinCrop Version (256×256×varied slices, 3 time points each)
+| Dataset | Patients | Avg Z-slices | Size (GB) |
+|---------|----------|--------------|-----------|
+| I-SPY1 | 172 | 28 | ~2 |
+| I-SPY2 | 982 | 39 | ~16 |
+| Duke | 918 | 25 | ~10 |
+| **Total** | **2,072** | **32** | **~28** |
+
+#### Full Version (Original Resolution)
+| Dataset | Patients | Common Resolutions | Avg Z-slices | Avg Time Points | Size (GB) |
+|---------|----------|-------------------|--------------|-----------------|-----------|
+| I-SPY1 | 172 | 256×256 (91%), 512×512 (9%) | 59 | 3.4 | ~6 |
+| I-SPY2 | 982 | 256×256 (78%), 320×320 (12%), other (10%) | 106 | 7.2 | ~54 |
+| Duke | 916 | 512×512 (68%), 448×448 (28%), 320×320 (4%) | 170 | 4.5 | ~142 |
+| **Total** | **2,070** | **Multiple (256-512)** | **131** | **5.7** | **~202** |
+  
 ## 📁 Repository Contents
 
 | File | Description |
@@ -109,19 +75,9 @@ The Full version preserves the complete temporal and spatial information from th
 
 **Directories:** `I-SPY1/`, `I-SPY2/`, and `DUKE/` contain dataset-specific code for preprocessing metadata, DICOM exploration, and conversion to NIfTI format.
 
+## 🎯 Benchmark 
 
-## 🎯 Benchmark Tasks
-
-Three standardized classification tasks with preserved train/validation/test splits:
-
-| Task | Description | Distribution | Best Performance |
-|------|-------------|--------------|-----------------|
-| **pCR Prediction** | Pathological complete response to neoadjuvant therapy | 29.5% positive (n=428/1452) | AUC 0.94 (ViT, HR+/HER2−)¹ |
-| **HER2 Status** | HER2 expression | 22.1% positive (n=458/2070) | AUC 0.74 (Dual-Attention ResNet)² |
-| **HR Status** | Hormone receptor positivity | 64.2% positive (n=1327/2070) | - |
-
-¹Results from [Fridman et al., 2025 - BreastDCEDL](https://doi.org/10.48550/arXiv.2506.12190)  
-²Results from [Fridman & Goldstein, 2025 - Dual-Attention ResNet](https://arxiv.org/abs/2510.13897)
+The dataset was split into training, validation, and test sets using stratified random sampling to ensure balanced distributions of pCR, HER2, and HR status across all splits. This multi-label stratification maintains consistent class proportions, enabling fair model comparison and preventing bias from imbalanced sampling. Reported performance metrics are calculated on the held-out test set.
 
 ### Data Splits
 
@@ -133,6 +89,19 @@ Three standardized classification tasks with preserved train/validation/test spl
 | **Total** | 1452 | 428 | 1024 | 2068 | 1327 | 741 | 2065 | 459 | 1606 |
 
 *N = number of patients with available labels for each biomarker
+
+### Classification Tasks and Results
+
+Three standardized classification tasks are provided for benchmarking:
+
+| Task | Description | Distribution | Best Performance |
+|------|-------------|--------------|-----------------|
+| **pCR Prediction** | Pathological complete response to neoadjuvant therapy | 29.5% positive (n=428/1452) | AUC 0.94 (ViT, HR+/HER2−)¹ |
+| **HER2 Status** | HER2 expression | 22.1% positive (n=458/2070) | AUC 0.74 (Dual-Attention ResNet)² |
+| **HR Status** | Hormone receptor positivity | 64.2% positive (n=1327/2070) | - |
+
+¹Results from [Fridman et al., 2025 - BreastDCEDL](https://doi.org/10.48550/arXiv.2506.12190)  
+²Results from [Fridman & Goldstein, 2025 - Dual-Attention ResNet](https://arxiv.org/abs/2510.13897)
 
 ## 🏥 Dataset Details
 
