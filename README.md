@@ -1,24 +1,9 @@
 
 # BreastDCEDL - 2,070 Breast Cancer Patients
 
+Curated deep learning-ready DCE-MRI dataset with standardized 3D NIfTI volumes, tumor segmentations, and harmonized clinical metadata from three major trials (I-SPY2, I-SPY1, Duke). Designed for reproducible research in breast cancer imaging analysis.
 Deep learning-ready dataset of pretreatment 3D dynamic contrast-enhanced MRI (DCE-MRI) scans from **2,070 breast cancer patients** across three clinical trials: **I-SPY2** (n=982), **I-SPY1** (n=172), and **Duke** (n=916).
 
-## 📄 Publication
-
-**BreastDCEDL: A Comprehensive Breast Cancer DCE-MRI Dataset and Transformer Implementation for Treatment Response Prediction**  
-[Read on arXiv](https://doi.org/10.48550/arXiv.2506.12190)
-```bibtex
-@article{fridman2025breastdcedl,
-  title={BreastDCEDL: A Comprehensive Breast Cancer DCE-MRI Dataset and Transformer Implementation for Treatment Response Prediction},
-  author={Fridman, Naomi and Solway, Bubby and Fridman, Tomer and Barnea, Itamar and Goldstein, Anat},
-  journal={arXiv preprint arXiv:2506.12190},
-  year={2025},
-  doi={10.48550/arXiv.2506.12190}
-}
-```
-# BreastDCEDL - 2,070 Breast Cancer Patients
-
-Curated deep learning-ready DCE-MRI dataset with standardized 3D NIfTI volumes, tumor segmentations, and harmonized clinical metadata from three major trials (I-SPY2, I-SPY1, Duke). Designed for reproducible research in breast cancer imaging analysis.
 
 ## 📄 Publication
 
@@ -40,10 +25,28 @@ Both versions preserve original DICOM intensity values (converted from uint16 to
 
 ### Dataset Characteristics
 
-| Version | Spatial Dimensions | Temporal Points | Total Size | Tumor Masks |
-|---------|-------------------|-----------------|------------|-------------|
-| **MinCrop** | 256 × 256 × ~32 slices | 3 (pre, early, late) | 52 GB | 1 per patient |
-| **Full** | ~371 × 371 × ~131 slices | 3-12 (avg 5.7) | 906 GB | 1 per patient |
+#### MinCrop Version (256×256×varied slices)
+| Dataset | Patients | Avg Z-slices | Time Points | Size (GB) |
+|---------|----------|--------------|-------------|-----------|
+| I-SPY1 | 172 | 28 | 3 | 3.8 |
+| I-SPY2 | 982 | 39 | 3 | 30.0 |
+| Duke | 918 | 25 | 3 | 18.4 |
+| **Total** | **2,072** | **32** | **3** | **52.2** |
+
+#### Full Version (Original Resolution)
+| Dataset | Patients | Common Resolutions | Avg Z-slices | Avg Time Points | Size (GB) |
+|---------|----------|-------------------|--------------|-----------------|-----------|
+| I-SPY1 | 172 | 256×256 (91%), 512×512 (9%) | 59 | 3.4 | 10.8 |
+| I-SPY2 | 982 | 256×256 (78%), 320×320 (12%), other (10%) | 106 | 7.2 | 237.1 |
+| Duke | 916 | 512×512 (68%), 448×448 (28%), 320×320 (4%) | 170 | 4.5 | 658.0 |
+| **Total** | **2,070** | **Multiple (256-512)** | **131** | **5.7** | **905.9** |
+
+#### Spatial Resolution Distribution (Full Dataset)
+- **256×256**: 924 patients (45%)
+- **320×320**: 86 patients (4%)
+- **384×384**: 140 patients (7%)
+- **448×448**: 257 patients (12%)
+- **512×512**: 642 patients (31%)
 
 ### MinCrop Version
 
