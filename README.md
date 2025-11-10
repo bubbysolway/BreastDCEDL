@@ -2,11 +2,11 @@
 # BreastDCEDL - 2,070 Breast Cancer Patients
 
 Deep learning-ready dataset of pretreatment 3D dynamic contrast-enhanced MRI (DCE-MRI) scans from **2,070 breast cancer patients** across three clinical trials: **I-SPY2** (n=982), **I-SPY1** (n=172), and **Duke** (n=916). Features standardized 3D NIfTI volumes, tumor segmentations, and harmonized clinical metadata designed for reproducible research in breast cancer imaging analysis.
+Nifti files preserve original DICOM intensity values (converted from uint16 to float64) without any preprocessing, normalization, or manipulation. All medical data processing code is available in the dataset-specific subdirectories for full transparency.
 
 ## 📄 Publication
 
-**BreastDCEDL: A Comprehensive Breast Cancer DCE-MRI Dataset and Transformer Implementation for Treatment Response Prediction**  
-[Read on arXiv](https://doi.org/10.48550/arXiv.2506.12190)
+[For Full methodology, Read on arXiv](https://doi.org/10.48550/arXiv.2506.12190)
 ```bibtex
 @article{fridman2025breastdcedl,
   title={BreastDCEDL: A Comprehensive Breast Cancer DCE-MRI Dataset and Transformer Implementation for Treatment Response Prediction},
@@ -17,11 +17,7 @@ Deep learning-ready dataset of pretreatment 3D dynamic contrast-enhanced MRI (DC
 }
 ```
 
-## 🔍 Dataset Versions
-
-Both versions preserve original DICOM intensity values (converted from uint16 to float64) without any preprocessing, normalization, or manipulation. All medical data processing code is available in the dataset-specific subdirectories for full transparency.
-
-### MinCrop Version
+### BreastDCEDL MinCrop Version
 
 The MinCrop version provides three carefully selected DCE-MRI time points (pre-contrast, early post-contrast, late post-contrast) cropped to 256×256 pixels around the main tumor. This version has been successfully used to train deep learning models achieving state-of-the-art results for pCR (AUC 0.94) and HER2 (AUC 0.74) prediction in published research. 
 
@@ -35,7 +31,7 @@ The dataset is suitable for a wide range of computational approaches including r
 
 ![Example of DCE-MRI temporal phases](https://github.com/naomifridman/BreastDCEDL/blob/main/images/ser_images.png?raw=true)
 
-### Full Version
+### BreastDCEDL Full Version
 
 The Full version preserves complete spatiotemporal information for researchers investigating advanced temporal dynamics, developing novel preprocessing methods, or requiring the full field of view. Contains all acquired time points (3-12) at original resolution, enabling deep exploration of contrast enhancement kinetics and spatial relationships beyond the tumor region.
 
