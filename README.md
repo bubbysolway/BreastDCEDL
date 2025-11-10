@@ -1,151 +1,119 @@
-
 # BreastDCEDL
 
-**BreastDCEDL** is a curated collection of pretreatment 3D dynamic contrast-enhanced MRI (DCE-MRI) scans from **2,070 breast cancer patients**, assembled into a deep learning–ready dataset. It integrates data from three major clinical trials: **I-SPY2** (n = 982), **I-SPY1** (n = 173), and **Duke** (n = 916). The dataset, originally sourced from The Cancer Imaging Archive (TCIA), includes:
+A comprehensive deep learning-ready dataset of pretreatment 3D dynamic contrast-enhanced MRI (DCE-MRI) scans from **2,070 breast cancer patients**, combining data from three major clinical trials: **I-SPY2** (n=982), **I-SPY1** (n=172), and **Duke** (n=916).
 
--   3D raw MRI scans converted to NIfTI format
--   Corresponding 3D tumor binary segmentation masks
--   Clinical and demographic metadata, including pCR, HER2, HR, age, and race
-
-----------
-
-## Article
+## 📄 Publication
 
 **BreastDCEDL: Curating a Comprehensive DCE-MRI Dataset and Developing a Transformer Implementation**  
 [Read on arXiv](https://doi.org/10.48550/arXiv.2506.12190)
 
-**Description:**  
-This work introduces BreastDCEDL, a carefully assembled dataset of pre-treatment 3D DCE-MRI scans, and presents a transformer-based deep learning approach for analyzing these images. The dataset brings together imaging data from multiple sources to support research in breast cancer detection and diagnosis, while the accompanying transformer implementation demonstrates state-of-the-art performance on this challenging medical imaging task.
+## 🔍 Dataset Versions
 
----
-## 📥 BreastDCEDL Data Download
+### MinCrop Version (Recommended for Quick Start)
+- **3 tumor-centered scans per patient**: pre-contrast, early post-contrast, late post-contrast
+- **Standardized size**: All scans cropped to 256×256 pixels around the main tumor
+- **Fully available on Zenodo**: [Download MinCrop Dataset](https://zenodo.org/records/15627233)
+- **Ideal for**: Training deep learning models with RGB fusion from 3 main time points, benchmarking, and resource-constrained environments
 
-- **I-SPY1**  
-  The complete I-SPY1 dataset is available for direct download from **Zenodo**:  
-  [https://zenodo.org/records/15627233](https://zenodo.org/records/15627233)
+### Full Version
+- **Complete DCE-MRI sequences**: 3-12 time points per patient
+- **Original resolution**: Preserves full field of view and spatial information
+- **Availability**:
+  - **I-SPY1 (Full)**: [Download from Zenodo](https://zenodo.org/records/15627233)
+  - **I-SPY2 (Full)**: [Download from Zenodo](https://zenodo.org/records/15627233)
+  - **Duke**: Download from [TCIA](https://www.cancerimagingarchive.net/) and convert using provided code
 
-- **Duke**  
-  The full Duke cohort can be accessed via **The Cancer Imaging Archive (TCIA)**.  
-  Conversion to NIfTI format can be performed using the provided code in the `DUKE/` folder.  
-  A minimized version—containing three *(n<sub>z</sub>, 256×256)* tumor-centered scans per patient—is available on **Zenodo**:  
-  [https://zenodo.org/records/15627233](https://zenodo.org/records/15627233)
+## 📁 Repository Contents
 
-- **I-SPY2**  
-  The full I-SPY2 dataset is available on **TCIA** and can be converted to NIfTI using the code in this repository.  
-  A pre-converted NIfTI version will be made available on TCIA in the near future.
+| File/Directory | Description |
+|------|-------------|
+| `BreastDCEDL_metadata.csv` | Complete metadata for the full BreastDCEDL dataset |
+| `BreastDCEDL_metadata_min_crop.csv` | Metadata for the MinCrop version |
+| `BreastDCEDL_demo.ipynb` | Visualize data examples included in this repository |
+| `BreastDCEDL_demo_on_local_data_min_crop.ipynb` | Explore and work with MinCrop data after downloading |
+| `BreastDCEDL_vit_predict.ipynb` | Predict pCR using trained ViT model |
+| `DUKE/` | Code for converting Duke DICOM data to NIfTI format |
+| `I-SPY1/` | I-SPY1 dataset processing code and metadata tools |
+| `I-SPY2/` | I-SPY2 dataset processing code and metadata tools |
 
+## 🎯 Benchmark Tasks
 
-## Benchmark Prediction Tasks
+Three standardized classification tasks with preserved train/validation/test splits:
 
-The dataset provides a standardized benchmark for three central classification tasks in breast cancer MRI:
+| Task | Description | Distribution | Best Performance |
+|------|-------------|--------------|-----------------|
+| **pCR Prediction** | Pathological complete response to neoadjuvant therapy | 29.5% positive (n=428/1452) | AUC 0.94 (ViT, HR+/HER2−)¹ |
+| **HER2 Status** | HER2 expression | 22.1% positive (n=458/2070) | AUC 0.74 (Dual-Attention ResNet)² |
+| **HR Status** | Hormone receptor positivity | 64.2% positive (n=1327/2070) | - |
 
--   **Pathological Complete Response (pCR):** A binary classification task predicting treatment response based on pretreatment imaging. Approximately 32.2% of patients (n = 317) achieved pCR, offering a moderately balanced class distribution. _pCR (pathologic complete response) refers to the complete disappearance of all invasive cancer cells in the breast and lymph nodes following neoadjuvant therapy and is considered a strong surrogate for favorable long-term prognosis._
-    
--   **Hormone Receptor (HR) Status:** Classification of HR positivity (present in 54.5% of cases, n = 537) directly from imaging, assessing the link between MRI features and receptor expression.
-    
--   **HER2 Status:** Prediction of HER2 expression (positive in 24.8%, n = 244) from imaging data, enabling evaluation of MRI-based biomarker inference.
-    
+¹Results from [Fridman et al., 2025 - BreastDCEDL](https://doi.org/10.48550/arXiv.2506.12190)  
+²Results from [Fridman & Goldstein, 2025 - Dual-Attention ResNet](https://arxiv.org/abs/2510.13897)
 
-Ground truth labels include HR, HER2, and pCR status, as well as molecular subtypes (HR+/HER2−, HER2+, Triple Negative) and MammaPrint risk categories. The dataset is split into training, validation, and test cohorts with preserved class distributions to ensure consistent and reproducible 
-| Split      | pCR N | pCR+ | pCR− | HR N | HR+  | HR−  | HER2 N | HER2+ | HER2− |
-|------------|-------|------|------|------|------|------|--------|-------|-------|
-| Training   | 1099  | 324  | 775  | 1543 | 997  | 546  | 1542   | 349   | 1193  |
-| Validation | 174   | 53   | 121  | 269  | 168  | 101  | 269    | 58    | 211   |
-| Test       | 175   | 53   | 122  | 271  | 173  | 98   | 269    | 56    | 213   |
-| **Total**  | 1448  | 430  | 1018 | 2083 | 1338 | 745  | 2080   | 463   | 1617  |
+### Data Splits
 
+| Split | pCR N | pCR+ | pCR− | HR N | HR+ | HR− | HER2 N | HER2+ | HER2− |
+|-------|-------|------|------|------|-----|-----|--------|-------|-------|
+| **Training** | 1099 | 322 | 777 | 1529 | 987 | 542 | 1528 | 345 | 1183 |
+| **Validation** | 176 | 53 | 123 | 268 | 167 | 101 | 268 | 58 | 210 |
+| **Test** | 177 | 53 | 124 | 271 | 173 | 98 | 269 | 56 | 213 |
+| **Total** | 1452 | 428 | 1024 | 2068 | 1327 | 741 | 2065 | 459 | 1606 |
 
+*N = number of patients with available labels for each biomarker
 
-> _Note: `pCR N` refers to the number of patients with non-missing pCR labels; similarly, `HR N` and `HER2 N` indicate the number of patients with available HR and HER2 status, respectively. Class distributions are shown for each split._
+## 🏥 Dataset Details
 
-----------
+### I-SPY2 (n=982)
+- **Period**: 2010-2016 across 22+ clinical centers
+- **Protocol**: Standardized DCE-MRI acquisition
+- **Sequences**: 3-12 time points (typically 7)
+- **Annotations**: Full 3D tumor segmentations at 3 selected time points
 
-## DCE-MRI Clinical Background
+### I-SPY1 (n=172)
+- **Protocol**: Similar to I-SPY2 with minor variations
+- **Sequences**: 3-5 usable DCE scans
+- **Annotations**: Full 3D tumor segmentations
 
-Dynamic Contrast-Enhanced MRI (DCE-MRI) is a 3D imaging technique that captures a sequence of scans before and after the injection of a contrast agent (typically gadolinium). The contrast enhances visibility of blood vessels and tissue perfusion, allowing observation of how the agent accumulates and clears from tissues over time.
+### Duke (n=916)
+- **Period**: 2000-2014
+- **NAC subset**: 298 patients with pCR labels (only 31% received neoadjuvant chemotherapy)
+- **Sequences**: 1 pre-contrast + 2-4 post-contrast scans
+- **Annotations**: Bounding box of largest tumor (no full segmentation)
 
-Tumors exhibit characteristic enhancement patterns: malignant lesions often enhance quickly and wash out, while benign lesions typically enhance more slowly or steadily. Radiologists assess these patterns by reviewing two or three key time points—commonly the pre-contrast image and one or two post-contrast phases (e.g., the 2nd, 3rd, or 4th scan in the series). This helps them distinguish between benign and malignant lesions and informs treatment decisions.
+## 🚀 Quick Start
 
-These enhancement dynamics are critical both for clinical evaluation and for machine learning models that aim to predict malignancy, treatment response, or other tumor characteristics.
+### Option 1: Explore Sample Data (No Download Required)
+Open `BreastDCEDL_demo.ipynb` to visualize example data included in this repository.
 
-----------
+### Option 2: Work with Full MinCrop Dataset
+1. Download the MinCrop dataset from [Zenodo](https://zenodo.org/records/15627233)
+2. Open `BreastDCEDL_demo_on_local_data_min_crop.ipynb`
+3. Follow the notebook to explore and analyze the data
 
-## Dataset Details
+## 🔬 Clinical Background
 
-### 🧪 I-SPY2 Dataset
+Dynamic Contrast-Enhanced MRI (DCE-MRI) is a key imaging technique for breast cancer evaluation. It captures tissue perfusion dynamics through sequential 3D scans before and after contrast agent administration. In breast cancer:
+- **Enhancement patterns**: Malignant tumors typically show rapid initial enhancement followed by washout or plateau
+- **Clinical protocol**: Radiologists analyze pre-contrast and multiple post-contrast phases (typically 3-12 time points)
+- **Predictive value**: Enhancement dynamics correlate with treatment response and can predict pathological complete response (pCR) to neoadjuvant therapy
 
-The **I-SPY2** trial (Li et al., 2022; Newitt et al., 2021) provides DCE-MRI scans for 982 patients acquired from 2010 to 2016 across over 22 clinical centers using a standardized imaging protocol.
+For detailed methodology, see [Fridman et al., 2025](https://doi.org/10.48550/arXiv.2506.12190)
 
--   Target cohort: Women with high-risk, locally advanced breast cancer
--   Clinical data: pCR, HR, HER2, MammaPrint (MP) scores, type of neoadjuvant therapy, age, and race
+## 📚 Citations
 
-**🖼️ Imaging Details:**
+If you use the BreastDCEDL dataset or code in your research, please cite both the article and dataset:
 
--   Each MRI scan includes 3 to 12 time points (mostly 7)
--   Radiologists selected 3 time points for tumor segmentation: typically scans 0 (pre-contrast), 2 (early post-contrast), and 5 or 6 (late post-contrast). These selections are provided in the metadata under `pre`, `post_early`, and `post_late`.
-
-----------
-
-### 🧪 I-SPY1 Dataset
-
-The **I-SPY1** dataset is a predecessor to I-SPY2 and contains similar imaging and clinical information, with slightly fewer patients and minor differences in acquisition protocols.
-
--   Patients: 173 with 3–5 usable DCE scans
--   Clinical data: pCR, HR, HER2, and other core biomarkers
-
-  ![Example from I-SPY1](https://github.com/naomifridman/BreastDCEDL/blob/main/images/spy1_example.png?raw=true)
-
-
-----------
-
-### 🧪 Duke Dataset
-
-The **Duke Breast Cancer Dataset** consists of 920 patients with biopsy-confirmed invasive breast cancer, collected between 2000 and 2014.
-
--   Only 288 patients (31%) received neoadjuvant chemotherapy (NAC) and have annotated pCR values.
--   The rest underwent surgery first, followed by adjuvant therapy, and are not included in pCR analysis.
--   DCE-MRI scans include one pre-contrast and 2–4 post-contrast acquisitions, spaced 1–2 minutes apart.
-
-![Example from I-SPY1](https://github.com/naomifridman/BreastDCEDL/blob/main/images/duke_example.png?raw=true)
-
-
-**🖼️ Data Processing Notes:**
-
--   Bounding box annotations of the largest tumor are provided.
--   No full tumor segmentation masks are available for Duke.
-
-----------
-
-## 📚 Citation
-
-If you use the BreastDCEDL dataset or code in your research, please cite:
-
-Certainly! Here’s a concise, original description of your article, followed by the article and dataset citation sections in Markdown:
-
----
-
-#### Article
-
-**BreastDCEDL: Curating a Comprehensive DCE-MRI Dataset and Developing a Transformer Implementation**  
-[Read on arXiv](https://doi.org/10.48550/arXiv.2506.12190)
-
-**Citation:**
+### Article Citation (Required)
 ```bibtex
 @article{fridman2025breastdcedl,
-  title={BreastDCEDL: Curating a Comprehensive DCE-MRI Dataset and Developing a Transformer Implementation},
-  author={Fridman, Naomi and others},
+  title={BreastDCEDL: A Comprehensive Breast Cancer DCE-MRI Dataset and Transformer Implementation for Treatment Response Prediction},
+  author={Fridman, Naomi and Solway, Bubby and Fridman, Tomer and Barnea, Itamar and Goldstein, Anat},
   journal={arXiv preprint arXiv:2506.12190},
   year={2025},
   doi={10.48550/arXiv.2506.12190}
 }
 ```
 
-#### Dataset
-
-**BreastDCEDL Dataset**  
-[Available on Zenodo](https://doi.org/10.5281/zenodo.15627233)
-
-**Citation:**
+### Dataset Citation (Required when using the data)
 ```bibtex
 @dataset{fridman2025breastdcedl_dataset,
   author       = {Fridman, Naomi and others},
@@ -154,16 +122,16 @@ Certainly! Here’s a concise, original description of your article, followed by
   publisher    = {Zenodo},
   doi          = {10.5281/zenodo.15627233}
 }
+```
 
-----------
+**Note**: Please include both citations in any publication that uses the BreastDCEDL dataset or associated code.
 
-## 🔗 Source
+## 🔗 Resources
 
-All datasets were originally acquired from:
+- **Original Data Source**: [The Cancer Imaging Archive (TCIA)](https://www.cancerimagingarchive.net/)
+- **I-SPY2 Trial**: ClinicalTrials.gov NCT01042379
+- **Zenodo Repository**: [https://zenodo.org/records/15627233](https://zenodo.org/records/15627233)
 
--   [The Cancer Imaging Archive (TCIA)](https://www.cancerimagingarchive.net/)
--   Monticciolo et al., 2018, _Journal of the American College of Radiology (JACR)_
--   ClinicalTrials.gov - I-SPY2 (NCT01042379)
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY0MDcxODczOSwtMTM4MTMyNTczM119
--->
+## 📝 License
+
+Please refer to the original data sources for licensing information.
