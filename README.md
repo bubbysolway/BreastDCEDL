@@ -10,13 +10,13 @@ A comprehensive deep learning-ready dataset of pretreatment 3D dynamic contrast-
 ## 🔍 Dataset Versions
 
 ### MinCrop Version
-- **3 tumor-centered scans per patient**: pre-contrast, early post-contrast, late post-contrast
+- **3 tumor-centered scans per patient**: Pre-contrast, early post-contrast, late post-contrast
 - **Standardized size**: All scans cropped to 256×256 pixels around the main tumor
 - **Fully available on Zenodo**: [Download MinCrop Dataset](https://zenodo.org/records/15627233)
-- **Used for**: Training deep learning models with RGB fusion from 3 main time points for pCR and HER2 prediction in published research.
-- **Radiologist** use those scans to find/classigy malifgnant tumor and sehment them.
+- **Used for**: Training deep learning models with RGB fusion from 3 main time points for pCR and HER2 prediction in published research
+- **Clinical relevance**: These three time points are specifically selected by radiologists for tumor identification, characterization, and segmentation in clinical practice
 
-  ![Example from I-SPY1](https://github.com/naomifridman/BreastDCEDL/blob/main/images/ser_images.png?raw=true)
+![Example of DCE-MRI temporal phases](https://github.com/naomifridman/BreastDCEDL/blob/main/images/ser_images.png?raw=true)
 
 
 ### Full Version
@@ -31,13 +31,13 @@ A comprehensive deep learning-ready dataset of pretreatment 3D dynamic contrast-
 
 | File | Description |
 |------|-------------|
-| `BreastDCEDL_metadata.csv` | Metadata for the full size BreastDCEDL dataset |
+| `BreastDCEDL_metadata.csv` | Metadata for the full BreastDCEDL dataset |
 | `BreastDCEDL_metadata_min_crop.csv` | Metadata for the MinCrop version |
 | `BreastDCEDL_demo.ipynb` | Visualize data examples included in this repository |
 | `BreastDCEDL_demo_on_local_data_min_crop.ipynb` | Explore and work with MinCrop data after downloading from Zenodo |
 | `BreastDCEDL_vit_predict.ipynb` | Predict pCR using trained ViT model |
 
-Directories: ISPY1, ISPY2 and DUKE contains dataset specific code for preprocessing metadata, dicom exploring and converting
+**Directories:** `I-SPY1/`, `I-SPY2/`, and `DUKE/` contain dataset-specific code for preprocessing metadata, DICOM exploration, and conversion to NIfTI format.
 
 
 ## 🎯 Benchmark Tasks
@@ -69,7 +69,7 @@ Three standardized classification tasks with preserved train/validation/test spl
 ### I-SPY2 (n=982)
 - **Sequences**: 3-12 time points (typically 7)
 - **Annotations**: Full 3D tumor segmentations at 3 selected time points
-![Example from I-SPY1](https://github.com/naomifridman/BreastDCEDL/blob/main/images/spy2_example.png?raw=true)
+![Example from I-SPY1](https://github.com/naomifridman/BreastDCEDL/blob/main/images/spy2_figure.png?raw=true)
 ### I-SPY1 (n=172)
 - **Sequences**: 3-5 usable DCE scans
 - **Annotations**: Full 3D tumor segmentations
