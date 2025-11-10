@@ -25,16 +25,16 @@ A comprehensive deep learning-ready dataset of pretreatment 3D dynamic contrast-
 
 ## 📁 Repository Contents
 
-| File/Directory | Description |
+| File | Description |
 |------|-------------|
-| `BreastDCEDL_metadata.csv` | Complete metadata for the full BreastDCEDL dataset |
+| `BreastDCEDL_metadata.csv` | Metadata for the full size BreastDCEDL dataset |
 | `BreastDCEDL_metadata_min_crop.csv` | Metadata for the MinCrop version |
 | `BreastDCEDL_demo.ipynb` | Visualize data examples included in this repository |
-| `BreastDCEDL_demo_on_local_data_min_crop.ipynb` | Explore and work with MinCrop data after downloading |
+| `BreastDCEDL_demo_on_local_data_min_crop.ipynb` | Explore and work with MinCrop data after downloading from Zenodo |
 | `BreastDCEDL_vit_predict.ipynb` | Predict pCR using trained ViT model |
-| `DUKE/` | Code for converting Duke DICOM data to NIfTI format |
-| `I-SPY1/` | I-SPY1 dataset processing code and metadata tools |
-| `I-SPY2/` | I-SPY2 dataset processing code and metadata tools |
+
+Directories: ISPY1, ISPY2 and DUKE contains dataset specific code for preprocessing metadata, dicom exploring and converting
+
 
 ## 🎯 Benchmark Tasks
 
@@ -63,20 +63,16 @@ Three standardized classification tasks with preserved train/validation/test spl
 ## 🏥 Dataset Details
 
 ### I-SPY2 (n=982)
-- **Period**: 2010-2016 across 22+ clinical centers
-- **Protocol**: Standardized DCE-MRI acquisition
 - **Sequences**: 3-12 time points (typically 7)
 - **Annotations**: Full 3D tumor segmentations at 3 selected time points
-
+![Example from I-SPY1](https://github.com/naomifridman/BreastDCEDL/blob/main/images/spy2_example.png?raw=true)
 ### I-SPY1 (n=172)
-- **Protocol**: Similar to I-SPY2 with minor variations
 - **Sequences**: 3-5 usable DCE scans
 - **Annotations**: Full 3D tumor segmentations
 
 ![Example from I-SPY1](https://github.com/naomifridman/BreastDCEDL/blob/main/images/spy1_example.png?raw=true)
 
 ### Duke (n=916)
-- **Period**: 2000-2014
 - **NAC subset**: 298 patients with pCR labels (only 31% received neoadjuvant chemotherapy)
 - **Sequences**: 1 pre-contrast + 2-4 post-contrast scans
 - **Annotations**: Bounding box of largest tumor (no full segmentation)
