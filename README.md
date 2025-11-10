@@ -1,4 +1,4 @@
-# BreastDCEDL
+# BreastDCEDL 2,070 breast cancer patients 
 
 A comprehensive deep learning-ready dataset of pretreatment 3D dynamic contrast-enhanced MRI (DCE-MRI) scans from **2,070 breast cancer patients**, combining data from three major clinical trials: **I-SPY2** (n=982), **I-SPY1** (n=172), and **Duke** (n=916).
 
