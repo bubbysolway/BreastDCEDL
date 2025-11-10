@@ -1,15 +1,29 @@
-Here's the rewritten section with expanded descriptions:
 
-```markdown
 # BreastDCEDL - 2,070 Breast Cancer Patients
 
-A comprehensive deep learning-ready dataset of pretreatment 3D dynamic contrast-enhanced MRI (DCE-MRI) scans from **2,070 breast cancer patients**, combining data from three major clinical trials: **I-SPY2** (n=982), **I-SPY1** (n=172), and **Duke** (n=916).
+Deep learning-ready dataset of pretreatment 3D dynamic contrast-enhanced MRI (DCE-MRI) scans from **2,070 breast cancer patients** across three clinical trials: **I-SPY2** (n=982), **I-SPY1** (n=172), and **Duke** (n=916).
 
 ## 📄 Publication
 
 **BreastDCEDL: A Comprehensive Breast Cancer DCE-MRI Dataset and Transformer Implementation for Treatment Response Prediction**  
 [Read on arXiv](https://doi.org/10.48550/arXiv.2506.12190)
+```bibtex
+@article{fridman2025breastdcedl,
+  title={BreastDCEDL: A Comprehensive Breast Cancer DCE-MRI Dataset and Transformer Implementation for Treatment Response Prediction},
+  author={Fridman, Naomi and Solway, Bubby and Fridman, Tomer and Barnea, Itamar and Goldstein, Anat},
+  journal={arXiv preprint arXiv:2506.12190},
+  year={2025},
+  doi={10.48550/arXiv.2506.12190}
+}
+```
+# BreastDCEDL - 2,070 Breast Cancer Patients
 
+Curated deep learning-ready DCE-MRI dataset with standardized 3D NIfTI volumes, tumor segmentations, and harmonized clinical metadata from three major trials (I-SPY2, I-SPY1, Duke). Designed for reproducible research in breast cancer imaging analysis.
+
+## 📄 Publication
+
+**BreastDCEDL: A Comprehensive Breast Cancer DCE-MRI Dataset and Transformer Implementation for Treatment Response Prediction**  
+[Read on arXiv](https://doi.org/10.48550/arXiv.2506.12190)
 ```bibtex
 @article{fridman2025breastdcedl,
   title={BreastDCEDL: A Comprehensive Breast Cancer DCE-MRI Dataset and Transformer Implementation for Treatment Response Prediction},
@@ -20,6 +34,38 @@ A comprehensive deep learning-ready dataset of pretreatment 3D dynamic contrast-
 }
 ```
 
+## 🔍 Dataset Versions
+
+Both versions preserve original DICOM intensity values (converted from uint16 to float64) without any preprocessing, normalization, or manipulation. All medical data processing code is available in the dataset-specific subdirectories for full transparency.
+
+### Dataset Characteristics
+
+| Version | Spatial Dimensions | Temporal Points | Total Size | Tumor Masks |
+|---------|-------------------|-----------------|------------|-------------|
+| **MinCrop** | 256 × 256 × ~32 slices | 3 (pre, early, late) | 52 GB | 1 per patient |
+| **Full** | ~371 × 371 × ~131 slices | 3-12 (avg 5.7) | 906 GB | 1 per patient |
+
+### MinCrop Version
+
+The MinCrop version provides the essential DCE-MRI data needed for most computational approaches, from traditional radiomics to state-of-the-art deep learning. It contains three carefully selected time points (pre-contrast, early post-contrast, late post-contrast) that radiologists use for clinical tumor assessment, cropped to 256×256 pixels around the main tumor. 
+
+This standardized format supports any computational method: radiomics feature extraction, traditional machine learning classifiers, and deep learning architectures. The CSV metadata with numerically encoded clinical variables and 3D NIfTI imaging files ensure seamless compatibility with all major programming languages and medical imaging software (Python, R, MATLAB, ITK-SNAP, 3D Slicer, etc.). Repository examples demonstrate Python implementations using PyTorch and HuggingFace infrastructure for deep learning, though the data format is framework-agnostic.
+
+The MinCrop version has been validated in published research, achieving pCR prediction AUC of 0.94 and HER2 prediction AUC of 0.74 using RGB fusion of the three time points. It provides sufficient temporal information for most clinical prediction tasks while maintaining a manageable dataset size.
+
+- **Download**: [Zenodo](https://zenodo.org/records/15627233) (52 GB)
+- **Proven applications**: RGB fusion models, radiomics pipelines, classification tasks
+
+![DCE-MRI temporal phases](https://github.com/naomifridman/BreastDCEDL/blob/main/images/ser_images.png?raw=true)
+
+### Full Version
+
+The Full version preserves complete spatiotemporal information for researchers investigating advanced temporal dynamics, developing novel preprocessing methods, or requiring the full field of view. Contains all acquired time points (3-12) at original resolution, enabling deep exploration of contrast enhancement kinetics and spatial relationships beyond the tumor region.
+
+- **I-SPY1**: [Download from Zenodo](https://zenodo.org/records/15627233)
+- **I-SPY2**: [Download from Zenodo](https://zenodo.org/records/15627233)
+- **Duke**: Download from [TCIA](https://www.cancerimagingarchive.net/), convert using provided code
+  
 ## 🔍 Dataset Versions
 
 ### MinCrop Version
