@@ -4,7 +4,7 @@ A comprehensive deep learning-ready dataset of pretreatment 3D dynamic contrast-
 
 ## 📄 Publication
 
-**BreastDCEDL: Curating a Comprehensive DCE-MRI Dataset and Developing a Transformer Implementation**  
+**BreastDCEDL: A Comprehensive Breast Cancer DCE-MRI Dataset and Transformer Implementation for Treatment Response Prediction**  
 [Read on arXiv](https://doi.org/10.48550/arXiv.2506.12190)
 
 ## 🔍 Dataset Versions
@@ -17,8 +17,6 @@ A comprehensive deep learning-ready dataset of pretreatment 3D dynamic contrast-
 - **Clinical relevance**: These three time points are specifically selected by radiologists for tumor identification, characterization, and segmentation in clinical practice
 
 ![Example of DCE-MRI temporal phases](https://github.com/naomifridman/BreastDCEDL/blob/main/images/ser_images.png?raw=true)
-
-
 ### Full Version
 - **Complete DCE-MRI sequences**: 3-12 time points per patient
 - **Original resolution**: Preserves full field of view and spatial information
@@ -73,20 +71,16 @@ Three standardized classification tasks with preserved train/validation/test spl
 ### I-SPY1 (n=172)
 - **Sequences**: 3-5 usable DCE scans
 - **Annotations**: Full 3D tumor segmentations
-
 ![Example from I-SPY1](https://github.com/naomifridman/BreastDCEDL/blob/main/images/spy1_example.png?raw=true)
-
 ### Duke (n=916)
 - **NAC subset**: 298 patients with pCR labels (only 31% received neoadjuvant chemotherapy)
 - **Sequences**: 1 pre-contrast + 2-4 post-contrast scans
 - **Annotations**: Bounding box of largest tumor (no full segmentation)
-
 ![Example from Duke](https://github.com/naomifridman/BreastDCEDL/blob/main/images/duke_example.png?raw=true)
-
 ## 🚀 Quick Start
 
 ### Option 1: Explore Sample Data (No Download Required)
-Open `BreastDCEDL_demo.ipynb` to visualize example data included in this repository.
+Open `BreastDCEDL_demo.ipynb` to visualize and explore example data included in this repository.
 
 ### Option 2: Work with Full MinCrop Dataset
 1. Download the MinCrop dataset from [Zenodo](https://zenodo.org/records/15627233)
@@ -117,7 +111,7 @@ If you use the BreastDCEDL dataset or code in your research, please cite both th
 }
 ```
 
-### Dataset Citation (Required when using the data)
+### Dataset Citation
 ```bibtex
 @dataset{fridman2025breastdcedl_dataset,
   author       = {Fridman, Naomi and others},
@@ -128,13 +122,16 @@ If you use the BreastDCEDL dataset or code in your research, please cite both th
 }
 ```
 
-**Note**: Please include both citations in any publication that uses the BreastDCEDL dataset or associated code.
-
 ## 🔗 Resources
-
-- **Original Data Source**: [The Cancer Imaging Archive (TCIA)](https://www.cancerimagingarchive.net/)
-- **I-SPY2 Trial**: ClinicalTrials.gov NCT01042379
 - **Zenodo Repository**: [https://zenodo.org/records/15627233](https://zenodo.org/records/15627233)
+  
+### Original Data Sources
+- **I-SPY1**: Newitt, D., Hylton, N., on behalf of the I-SPY 1 Network and ACRIN 6657 Trial Team (2016). *Breast DCE-MRI Data and Segmentations from Patients in the I-SPY 1/ACRIN 6657 Trials* [Data set]. The Cancer Imaging Archive. [https://doi.org/10.7937/K9/TCIA.2016.HdHpgJLK](https://doi.org/10.7937/K9/TCIA.2016.HdHpgJLK)
+
+- **I-SPY2**: Li, W., Newitt, D. C., Gibbs, J., Wilmes, L. J., Jones, E. F., Arasu, V. A., ... & Hylton, N. M. (2022). *I-SPY 2 Breast Dynamic Contrast Enhanced MRI Trial (ISPY2)* (Version 1) [Data set]. The Cancer Imaging Archive. [https://doi.org/10.7937/TCIA.D8Z0-9T85](https://doi.org/10.7937/TCIA.D8Z0-9T85)
+
+- **Duke**: Saha, A., Harowicz, M. R., Grimm, L. J., Kim, C. E., Ghate, S. V., Walsh, R., & Mazurowski, M. A. (2021). *Dynamic contrast-enhanced magnetic resonance images of breast cancer patients with tumor locations (Duke-Breast-Cancer-MRI)* [Data set]. The Cancer Imaging Archive. [https://doi.org/10.7937/TCIA.e3sv-re93](https://doi.org/10.7937/TCIA.e3sv-re93)
+
 
 ## 📝 License
 
