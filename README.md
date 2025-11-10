@@ -9,11 +9,11 @@ A comprehensive deep learning-ready dataset of pretreatment 3D dynamic contrast-
 
 ## 🔍 Dataset Versions
 
-### MinCrop Version (Recommended for Quick Start)
+### MinCrop Version
 - **3 tumor-centered scans per patient**: pre-contrast, early post-contrast, late post-contrast
 - **Standardized size**: All scans cropped to 256×256 pixels around the main tumor
 - **Fully available on Zenodo**: [Download MinCrop Dataset](https://zenodo.org/records/15627233)
-- **Ideal for**: Training deep learning models with RGB fusion from 3 main time points, benchmarking, and resource-constrained environments
+- **Used for**: Training deep learning models with RGB fusion from 3 main time points for pCR and HER2 prediction in published research
 
 ### Full Version
 - **Complete DCE-MRI sequences**: 3-12 time points per patient
@@ -73,11 +73,15 @@ Three standardized classification tasks with preserved train/validation/test spl
 - **Sequences**: 3-5 usable DCE scans
 - **Annotations**: Full 3D tumor segmentations
 
+![Example from I-SPY1](https://github.com/naomifridman/BreastDCEDL/blob/main/images/spy1_example.png?raw=true)
+
 ### Duke (n=916)
 - **Period**: 2000-2014
 - **NAC subset**: 298 patients with pCR labels (only 31% received neoadjuvant chemotherapy)
 - **Sequences**: 1 pre-contrast + 2-4 post-contrast scans
 - **Annotations**: Bounding box of largest tumor (no full segmentation)
+
+![Example from Duke](https://github.com/naomifridman/BreastDCEDL/blob/main/images/duke_example.png?raw=true)
 
 ## 🚀 Quick Start
 
