@@ -94,7 +94,7 @@ Three standardized classification tasks are provided for benchmarking:
 
 ### BreastDCEDL_ISPY2 (n=982)
 - **Sequences**: 3-12 time points (typically 7)
-- **Annotations**: Full 3D tumor segmentations at 3 selected time points
+- **Annotations**: Full 3D tumor segmentations
 ![Example from I-SPY1](https://github.com/naomifridman/BreastDCEDL/blob/main/images/spy2_example.png?raw=true)
 ### BreastDCEDL_ISPY1 (n=172)
 - **Sequences**: 3-5 usable DCE scans
