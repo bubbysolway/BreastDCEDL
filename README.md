@@ -17,7 +17,7 @@ Nifti files preserve original DICOM intensity values (converted from uint16 to f
 }
 ```
 
-### BreastDCEDL MinCrop Version - avaleble on Zwnodo
+### BreastDCEDL MinCrop Version
 
 The MinCrop version provides three methodicaly selected DCE-MRI time points (pre-contrast, early post-contrast, late post-contrast) cropped to 256×256 pixels around the main tumor. This version has been successfully used to train deep learning models achieving state-of-the-art results for pCR (AUC 0.94) and HER2 (AUC 0.74) prediction in published research. 
 
