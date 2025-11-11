@@ -38,7 +38,7 @@ The Full version preserves complete spatiotemporal information for researchers i
 **Availability:**
 
 - **I-SPY1 (Full)**: ```Download from Zenodo](https://zenodo.org/records/15627233)```
-- **I-SPY2 (Full)**: ```[Download from Zenodo](https://zenodo.org/records/15627233)```
+- **I-SPY2 (Full)**: ```[Download from breastdcedl-ispy2 TCIA][(https://www.cancerimagingarchive.net/analysis-result/breastdcedl-ispy2/)]```
 - **Duke**: Download from ```[TCIA](https://www.cancerimagingarchive.net/)``` and convert using provided code
 
 **DCE MRI 3D Data Organization**
