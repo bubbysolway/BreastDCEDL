@@ -17,9 +17,9 @@ Nifti files preserve original DICOM intensity values (converted from uint16 to f
 }
 ```
 
-### BreastDCEDL MinCrop Version
+### BreastDCEDL MinCrop Version - avaleble on Zwnodo
 
-The MinCrop version provides three carefully selected DCE-MRI time points (pre-contrast, early post-contrast, late post-contrast) cropped to 256×256 pixels around the main tumor. This version has been successfully used to train deep learning models achieving state-of-the-art results for pCR (AUC 0.94) and HER2 (AUC 0.74) prediction in published research. 
+The MinCrop version provides three methodicaly selected DCE-MRI time points (pre-contrast, early post-contrast, late post-contrast) cropped to 256×256 pixels around the main tumor. This version has been successfully used to train deep learning models achieving state-of-the-art results for pCR (AUC 0.94) and HER2 (AUC 0.74) prediction in published research. 
 
 The dataset is suitable for a wide range of computational approaches including radiomics feature extraction, traditional machine learning, and deep learning. The standardized CSV metadata format with numerically encoded clinical variables and 3D NIfTI imaging files ensures compatibility with all major programming languages and medical imaging software. Examples in this repository demonstrate implementation in Python using PyTorch and HuggingFace infrastructure, though the data format supports any computational framework.
 
@@ -31,7 +31,7 @@ The dataset is suitable for a wide range of computational approaches including r
 
 ![BreastDCEDL ser images](https://github.com/naomifridman/BreastDCEDL/blob/main/images/ser_images.png?raw=true)
 
-### BreastDCEDL Full Version
+### BreastDCEDL Full Version - avalebale on TCIA
 
 The Full version preserves complete spatiotemporal information for researchers investigating advanced temporal dynamics, developing novel preprocessing methods, or requiring the full field of view. Contains all acquired time points (3-12) at original resolution, enabling deep exploration of contrast enhancement kinetics and spatial relationships beyond the tumor region.
 
@@ -39,7 +39,7 @@ The Full version preserves complete spatiotemporal information for researchers i
 
 - **I-SPY1 (Full)**: ```Download from Zenodo](https://zenodo.org/records/15627233)```
 - **I-SPY2 (Full)**: ```[Download from breastdcedl-ispy2 TCIA][(https://www.cancerimagingarchive.net/analysis-result/breastdcedl-ispy2/)]```
-- **Duke**: Download from ```[TCIA](https://www.cancerimagingarchive.net/)``` and convert using provided code
+- **Duke**: Download from ```[TCIA](https://www.cancerimagingarchive.net/)``` and convert using provided code.
 
 **DCE MRI 3D Data Organization**
 ![BreastDCEDL data structure](https://github.com/naomifridman/BreastDCEDL/blob/main/images/breastdcedl_data_structure.png?raw=true)
