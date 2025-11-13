@@ -3,6 +3,7 @@
 
 Deep learning-ready dataset of pretreatment 3D dynamic contrast-enhanced MRI (DCE-MRI) scans from **2,070 breast cancer patients** across three clinical trials: **I-SPY2** (n=982), **I-SPY1** (n=172), and **Duke** (n=916). Features standardized 3D NIfTI volumes, tumor segmentations, and harmonized clinical metadata designed for reproducible research in breast cancer imaging analysis.
 Nifti files preserve original DICOM intensity values (converted from uint16 to float64) without any preprocessing, normalization, or manipulation. All medical data processing code is available in the dataset-specific subdirectories for full transparency.
+**Demo:** https://colab.research.google.com/github/naomifridman/BreastDCEDL/blob/main/BrestDCEDL_zenodo_demo.ipynb
 
 ## 📄 Publication
 
@@ -95,16 +96,16 @@ Three standardized classification tasks are provided for benchmarking:
 ### BreastDCEDL_ISPY2 (n=982)
 - **Sequences**: 3-12 time points (typically 7)
 - **Annotations**: Full 3D tumor segmentations
-![Example from I-SPY1](https://github.com/naomifridman/BreastDCEDL/blob/main/images/spy2_example.png?raw=true)
+![Example from I-SPY1](https://github.com/naomifridman/BreastDCEDL/blob/main/images/spy2_image_grid_git1.png?raw=true)
 ### BreastDCEDL_ISPY1 (n=172)
 - **Sequences**: 3-5 usable DCE scans
 - **Annotations**: Full 3D tumor segmentations
-![Example from I-SPY1](https://github.com/naomifridman/BreastDCEDL/blob/main/images/spy1_example.png?raw=true)
+![Example from I-SPY1](https://github.com/naomifridman/BreastDCEDL/blob/main/images/spy1_image_grid_git1.png?raw=true)
 ### Duke (n=916)
 - **NAC subset**: 298 patients with pCR labels (only 31% received neoadjuvant chemotherapy)
 - **Sequences**: 1 pre-contrast + 2-4 post-contrast scans
 - **Annotations**: Bounding box of largest tumor (no full segmentation)
-![Example from Duke](https://github.com/naomifridman/BreastDCEDL/blob/main/images/duke_example.png?raw=true)
+![Example from Duke](https://github.com/naomifridman/BreastDCEDL/blob/main/images/duke_image_grid_git1.png?raw=true)
 ## 🚀 Quick Start
 
 ### Option 1: Explore Sample Data (No Download Required)
