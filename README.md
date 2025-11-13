@@ -25,7 +25,7 @@ The MinCrop version provides three methodicaly selected DCE-MRI time points (pre
 The dataset is suitable for a wide range of computational approaches including radiomics feature extraction, traditional machine learning, and deep learning. The standardized CSV metadata format with numerically encoded clinical variables and 3D NIfTI imaging files ensures compatibility with all major programming languages and medical imaging software. Examples in this repository demonstrate implementation in Python using PyTorch and HuggingFace infrastructure, though the data format supports any computational framework.
 
 **Key features:**
-- **3 tumor-centered scans per patient**: Pre-contrast-injection, early post-contrast, late post-contrast
+- **3 tumor-centered scans per patient**: Pre-contrast, early post-contrast, late post-contrast
 - **Standardized size**: All scans cropped to 256×256 pixels around the main tumor
 - **Fully available on Zenodo**: [Download MinCrop Dataset](https://zenodo.org/records/15627233)
 - **Clinical relevance**: These three time points are specifically selected by radiologists for tumor identification, characterization, and segmentation in clinical practice
@@ -37,10 +37,9 @@ The dataset is suitable for a wide range of computational approaches including r
 The Full version preserves complete spatiotemporal information for researchers investigating advanced temporal dynamics, developing novel preprocessing methods, or requiring the full field of view. Contains all acquired time points (3-12) at original resolution, enabling deep exploration of contrast enhancement kinetics and spatial relationships beyond the tumor region.
 
 **Availability:**
-
-- **I-SPY1 (Full)**: ```Download from Zenodo](https://zenodo.org/records/15627233)```
-- **I-SPY2 (Full)**: ```[Download from breastdcedl-ispy2 TCIA][(https://www.cancerimagingarchive.net/analysis-result/breastdcedl-ispy2/)]```
-- **Duke**: Download from ```[TCIA](https://www.cancerimagingarchive.net/)``` and convert using provided code.
+- **I-SPY1 (Full)**: [Download from Zenodo](https://zenodo.org/records/15627233)
+- **I-SPY2 (Full)**: [Download from breastdcedl-ispy2 TCIA](https://www.cancerimagingarchive.net/analysis-result/breastdcedl-ispy2/)
+- **Duke**: Download from [TCIA](https://www.cancerimagingarchive.net/) and convert using provided code
 
 **DCE MRI 3D Data Organization**
 ![BreastDCEDL data structure](https://github.com/naomifridman/BreastDCEDL/blob/main/images/breastdcedl_data_structure.png?raw=true)
