@@ -18,6 +18,7 @@ Nifti files preserve original DICOM intensity values (converted from uint16 to f
   doi={10.48550/arXiv.2506.12190}
 }
 ```
+![fusion_grid_breastdcedl](https://github.com/naomifridman/BreastDCEDL/blob/main/images/fusion_grid_with_row_titles_fixed_3.png?raw=true)
 
 ### BreastDCEDL MinCrop Version
 
