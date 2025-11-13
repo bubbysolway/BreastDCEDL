@@ -3,6 +3,7 @@
 
 Deep learning-ready dataset of pretreatment 3D dynamic contrast-enhanced MRI (DCE-MRI) scans from **2,070 breast cancer patients** across three clinical trials: **I-SPY2** (n=982), **I-SPY1** (n=172), and **Duke** (n=916). Features standardized 3D NIfTI volumes, tumor segmentations, and harmonized clinical metadata designed for reproducible research in breast cancer imaging analysis.
 Nifti files preserve original DICOM intensity values (converted from uint16 to float64) without any preprocessing, normalization, or manipulation. All medical data processing code is available in the dataset-specific subdirectories for full transparency.
+
 **Demo:** https://colab.research.google.com/github/naomifridman/BreastDCEDL/blob/main/BrestDCEDL_zenodo_demo.ipynb
 
 ## 📄 Publication
